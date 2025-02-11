@@ -11,6 +11,12 @@
             box-sizing: border-box;
         }
 
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
         .hero-section {
             height: 100vh;
             width: 100%;
@@ -21,99 +27,43 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            padding: 2rem;
         }
 
         .hero-title {
             color: black;
             font-size: 4rem;
-            font-family: Arial, sans-serif;
+            font-weight: bold;
         }
 
         .hero-subtitle {
             color: #7f7f7f;
             font-size: 1.5rem;
-            font-family: Arial, sans-serif;
-            margin-top: 2rem;
-            font-weight: 100;
-            letter-spacing: 1px;
+            margin-top: 1rem;
         }
 
-        .section {
-            padding: 8rem 4rem;
-            background-color: #ffffff;
-            max-width: 1200px;
-            margin: 0 auto;
+        .signup-section {
+            padding: 4rem 2rem;
+            background-color: white;
         }
 
-        .section:nth-child(even) {
-            background-color: #f8f9fa;
+        .signup-text {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .section-content {
-            max-width: 800px;
-            font-family: 'Inter', Arial, sans-serif;
-            line-height: 1.8;
-            color: #2d2d2d;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #000;
-            font-weight: 700;
-        }
-
-        .section-text {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-member {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 1rem;
-            object-fit: cover;
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
+        .signup-form input {
             padding: 1rem;
-            border: 1px solid #e0e0e0;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            font-family: 'Inter', Arial, sans-serif;
         }
 
-        .contact-form button {
+        .signup-form button {
             padding: 1rem 2rem;
-            background: #000;
+            background: black;
             color: white;
             border: none;
             border-radius: 5px;
@@ -121,7 +71,7 @@
             transition: background 0.3s ease;
         }
 
-        .contact-form button:hover {
+        .signup-form button:hover {
             background: #333;
         }
     </style>
@@ -132,58 +82,13 @@
         <h2 class="hero-subtitle">Building the Future of Computing - Starting with Audio</h2>
     </section>
 
-    <section class="section">
-        <div class="section-content">
-            <h2 class="section-title">Our Mission</h2>
-            <p class="section-text">Kabloie is a technology and design company at the forefront of innovation.</p>
-            <p class="section-text">We believe merging the digital and physical will be the next evolution of technology, redefining how we interact with devices, connect with others, and engage with the world around us.</p>
-            <p class="section-text">Our mission is to design technology for the next generation of computing, creating experiences that seamlessly blend reality with digital innovation.</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section-content">
-            <h2 class="section-title">About Us</h2>
-            <p class="section-text">Founded in the heart of innovation, Kabloie brings together the brightest minds in technology, design, and user experience to create groundbreaking solutions.</p>
-            <p class="section-text">Our approach combines cutting-edge technology with human-centered design principles, ensuring that our innovations not only push boundaries but also enhance people's lives in meaningful ways.</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section-content">
-            <h2 class="section-title">Our Team</h2>
-            <p class="section-text">Meet the innovators and creators behind Kabloie's vision.</p>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="team1.jpg" alt="Sarah Chen">
-                    <h3>Sarah Chen</h3>
-                    <p>CEO & Founder</p>
-                </div>
-                <div class="team-member">
-                    <img src="team2.jpg" alt="Marcus Rodriguez">
-                    <h3>Marcus Rodriguez</h3>
-                    <p>Head of Technology</p>
-                </div>
-                <div class="team-member">
-                    <img src="team3.jpg" alt="Emma Watson">
-                    <h3>Emma Watson</h3>
-                    <p>Design Director</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section-content">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-text">Interested in learning more about Kabloie or want to collaborate? Get in touch with us.</p>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+    <section class="signup-section">
+        <p class="signup-text">Sign up for future updates and be the first to know when we launch!</p>
+        <form class="signup-form">
+            <input type="email" placeholder="Enter your email" required>
+            <br>
+            <button type="submit">Notify Me</button>
+        </form>
     </section>
 </body>
 </html>
