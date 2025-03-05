@@ -1,19 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Kabloie</title>
-
-    <link rel="apple-touch-icon" sizes="180x180" href="imgs/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="imgs/favicon/favicon-16x16.png">
-    <link rel="manifest" href="imgs/favicon/site.webmanifest">
     
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    💥
+    <div class="hero">
+        <div class="hero-img">
+            <img src="images/fashion.jpg" alt="Fashion Image">
+        </div>
+    </div>
+    
+    <nav class="navbar" id="navbar">
+        <ul class="nav-links">
+            <li><a href="#home">Company</a></li>    <!-- Changed to #home -->
+            <li><a href="#about">Blog</a></li>     <!-- Changed to #about -->
+            <li><a href="#services">Team</a></li>   <!-- Changed to #services -->
+            <li><a href="#contact">Contact</a></li> <!-- Matches existing #contact -->
+        </ul>
+        <img class="nav-icon" src="images/logo.png" />
+        <button class="nav-button">Pre-Order</button>
+    </nav>
+    
+    <!-- Your sections remain the same -->
+    <section class="section" id="home">
+        <div class="section-content">
+            
+            <h1 class="section-title">Company Purpose</h1>
+            
+            <p class="section-text">Kabloie is a <span style="font-weight: 600;">technology and design</span> company.</p>
+
+            <div style="width: 50px; height: 4px; background-color: #FFD755; margin: 20px auto;"></div>
+
+            <p class="section-text">We believe <span style="font-weight: 600;">merging the digital and physical</span> will be the next evolution of technology.</p>
+
+            <div style="width: 50px; height: 5px; background-color: #FFD755; margin: 20px auto;"></div>
+
+            <p class="section-text">Our mission is to build the <span style="font-weight: 600;">future of computing</span>.</p>
+
+
+        </div>
+
+    </section>
+
+    <section class="section" id="about">
+        <div class="section-content">
+            <h1 class="section-title">Blog</h1>
+            <p class="section-text">
+
+                <i>No blog posts currently.</i>
+
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="section-content">
+            <h1 class="section-title">Team</h1>
+            <p class="section-text">
+
+                <img src="images/team2.png" style="max-width: 50%; height: auto;" />
+
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="section-content">
+            <h1 class="section-title">Contact</h1>
+            <p class="section-text">
+
+                hello@kabloie.com
+
+            </p>
+        </div>
+    </section>
+    
+    <footer style="background-color: white; padding: 20px; text-align: center; font-family: 'Newsreader', serif;">
+        <p style="color: #424242; font-size: 0.9rem; margin: 0;">
+            © 2025 Kabloie. All rights reserved.
+        </p>
+    </footer>
+
+    <script src="scripts/script.js"></script>
 </body>
 </html>

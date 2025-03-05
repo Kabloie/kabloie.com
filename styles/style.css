@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+}
+
+.hero {
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    width: calc(100% - 20px);
+    height: calc(100% - 10px);
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: #fff;
+    overflow: hidden;        /* Keeps image within rounded corners */
+}
+
+.hero-img img {
+    width: 100%;            /* Stretches image to full width */
+    height: 100%;           /* Stretches image to full height */
+    object-fit: cover;      /* Fills area, cropping if needed */
+    display: block;         /* Removes any default spacing */
+}
+
+.navbar {
+    height: 8vh;
+    background-color: #333;
+    width: 100%;
+    transition: all 0.3s ease; /* Smooth transition for position change */
+
+    height: 8vh;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 35px;
+    background-color: white;
+    position: relative;
+
+}
+
+/* Class to add when navbar becomes sticky */
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.nav-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;         /* Matches navbar height */
+    display: flex;        /* Ensures img can align within */
+    align-items: center;  /* Centers img vertically */
+    max-height: 60%;
+}
+
+.nav-button {
+    background-color: rgb(33, 33, 33); /* Soft coral */
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Increased padding for a more modern look */
+    border-radius: 25px; /* More rounded corners for a sleek appearance */
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif; /* Updated font for a modern feel */
+    font-weight: 600; /* Slightly bolder text */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+}
+
+.nav-button:hover {
+    background-color: #e55a5a; /* Darker coral on hover */
+    transform: scale(1.05); /* Slightly enlarges button on hover for a dynamic effect */
+}
+
+/* Sections styling */
+.section {
+    min-height: 92vh;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.section-content {
+    position: relative; /* Ensure it respects the parent's positioning */
+    flex: 1; /* Take up all available space */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    padding-top: 100px; /* Make room for absolute positioned title */
+}
+
+.section-title {
+    position: absolute; /* Position absolutely within .section-content */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    margin: 0; /* Remove default margin */
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 3rem;
+    text-align: left;
+}
+
+.section-text {
+    width: 100%;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-size: 1.25rem;
+    line-height: 3.25;
+}
+
+#home { 
+    background-color: #ffffff;
+}
+
+#about { 
+    background-color: #fdfbfb;
+}
+
+#services { 
+    background-color: #ffffff;
+}
+
+#contact { 
+    background-color: #fdfbfb;
+}
+
+
+/* Responsive adjustments for sections */
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 24px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .section-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
