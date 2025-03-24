@@ -16,26 +16,24 @@ html, body {
 }
 
 .hero-img {
-    width: calc(100% - 20px);
-    height: calc(100% - 10px);
-    margin-top: 10px;
-    border-radius: 20px;
+    width: calc(100%);
+    height: calc(100%);
     background-color: #fff;
-    overflow: hidden;        /* Keeps image within rounded corners */
+    overflow: hidden;
 }
 
 .hero-img img {
-    width: 100%;            /* Stretches image to full width */
-    height: 100%;           /* Stretches image to full height */
-    object-fit: cover;      /* Fills area, cropping if needed */
-    display: block;         /* Removes any default spacing */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .navbar {
     height: 8vh;
     background-color: #333;
     width: 100%;
-    transition: all 0.3s ease; /* Smooth transition for position change */
+    transition: all 0.3s ease;
 
     height: 8vh;
     bottom: 0;
