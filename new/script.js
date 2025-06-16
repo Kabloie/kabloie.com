@@ -1,12 +1,82 @@
+const supabaseClient = supabase.createClient('https://rdvwlcsdctljcrppreku.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJkdndsY3NkY3RsamNycHByZWt1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkzOTg2MDYsImV4cCI6MjA2NDk3NDYwNn0.Fh8L6wzaWzsbLDhparBq84uQ2rDM85SXCwqR7r8tdWA');
+
+// Function to set a cookie
+function setCookie(name, value, hours = 168) { // Expires in 7 days
+  const date = new Date();
+  date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
+  const expires = `expires=${date.toUTCString()}`;
+  document.cookie = `${name}=${value};${expires};path=/`;
+}
+
+// Function to get a cookie
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+function logUserActivity({ eventType, eventLabel, sessionId = null }) {
+  // Check for existing session cookie, or create new one
+  let currentSessionId = getCookie('session_id');
+  if (!currentSessionId) {
+    // Generate a UUID for the session if none exists or none provided
+    currentSessionId = sessionId || crypto.randomUUID();
+    setCookie('session_id', currentSessionId); // Sets cookie with UUID value
+  }
+
+  const payload = {
+    session_id: currentSessionId,
+    event_type: eventType,
+    event_label: eventLabel,
+    device_type: navigator.userAgent,
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    accept_language: navigator.language,
+    page_url: window.location.href,
+    screen_resolution: `${window.screen.width}x${window.screen.height}`,
+  };
+
+  supabaseClient
+    .from('user_activity')
+    .insert([payload])
+    .then(({ data, error }) => {
+      if (error) {
+        console.error('Insert error:', error);
+      } else {
+        console.log('Activity logged:', data);
+      }
+    });
+}
+
+// Example usage
+window.onload = () => {
+  logUserActivity({
+    eventType: 'page_view',
+    eventLabel: 'landing-page'
+  });
+};
+
+
 /* DARK MODE SWITCH*/
 window.addEventListener("DOMContentLoaded", () => {
     const isDark = localStorage.getItem("darkMode") === "true";
     if (isDark) {
         document.body.classList.add("dark-mode");
-        const logos = document.querySelectorAll('img[alt="Kabloie Logo"]');
-        logos.forEach(logo => {
+
+        const logo1 = document.querySelectorAll('img[alt="Kabloie Logo"]');
+        logo1.forEach(logo => {
             logo.src = "images/name-white.png";
         });
+
+        const logo2 = document.querySelectorAll('img[alt="Kabloie Second Logo"]');
+        logo2.forEach(logo => {
+            logo.src = "images/logo-white.png";
+        });
+
     }
 });
 function toggleDarkMode() {
@@ -20,15 +90,14 @@ function toggleDarkMode() {
         document.documentElement.style.backgroundColor = '#1e2021';
     }
 
-    const mainLogo = document.querySelector('img[alt="Kabloie Logo"]');
+    const logos = document.querySelectorAll('img[alt="Kabloie Logo"]');
+    logos.forEach(logo => {
+        logo.src = isDark ? "images/name-white.png" : "images/name.png";
+    });
+
     const secondLogo = document.querySelector('img[alt="Kabloie Second Logo"]');
-
-    if (mainLogo) {
-        mainLogo.src = isDark ? "images/name-white.png" : "images/name.png";
-    }
-
     if (secondLogo) {
-        secondLogo.src = isDark ? "images/logo-white.png" : "images/logo.png"; // Assuming there's a dark variant
+        secondLogo.src = isDark ? "images/logo-white.png" : "images/logo.png";
     }
 
     // Optional: save preference
@@ -172,3 +241,8 @@ window.addEventListener('scroll', () => {
         logo.classList.remove('scrolled');
     }
 });
+
+
+
+
+

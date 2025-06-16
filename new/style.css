@@ -74,6 +74,9 @@ body.dark-mode .icon-sun {
 body.dark-mode .icon-moon {
   display: block;
 }
+body.dark-mode .icon-moon:hover {
+    color: #dcdad6;
+}
 .nav-right-button {
     padding: 0.9rem 1.3rem;
     background-color: #f3f4f6;
@@ -84,8 +87,8 @@ body.dark-mode .icon-moon {
     font-size: 15px;
 }
 body.dark-mode .nav-right-button {
-    color: #dcdad6;
-    background-color: #181a1b;
+    color: #353535;
+    background-color: #dcdad6;
     box-shadow: rgba(159, 159, 159, 0.075) 0px 1px 8px 0px;
 }
 .nav-right-button:hover {
@@ -148,8 +151,8 @@ body.dark-mode .navbar a.active, a.active:hover {
     border-radius: 10px;
 }
 body.dark-mode .navbar .cta {
-    color: #dcdad6;
-    background-color: #181a1b;
+    color: #353535;
+    background-color: #dcdad6;
     box-shadow: rgba(159, 159, 159, 0.075) 0px 1px 8px 0px;
 }
 .navbar .cta:hover {
@@ -231,6 +234,9 @@ body.dark-mode .content p {
     text-align: center;
     font-weight: 300;
 }
+body.dark-mode .content img + p {
+    color: gray;
+}
 .content .divider {
     height: 0.75px;
     background: #eee;
@@ -260,15 +266,35 @@ body.dark-mode h3 {
     font-size: 15px;
 }
 body.dark-mode .content-button {
-    color: #dcdad6;
-    background-color: #181a1b;
+    color: #353535;
+    background-color: #dcdad6;
     box-shadow: rgba(159, 159, 159, 0.075) 0px 1px 8px 0px;
 }
 .content-button:hover {
     background-color: #eee;
 }
-
-
+.letter-ending p:first-child {
+    color: #333;
+    font-weight: 400;
+    margin:0;
+    font-size: 1.1rem;
+}
+.letter-ending p {
+    color: gray;
+    font-weight: 200;
+    margin:0;
+    font-size: 0.95rem;
+}
+body.dark-mode .letter-ending p:first-child {
+    color: lightgray;
+    font-weight: 400;
+    margin:0;
+}
+body.dark-mode .letter-ending p {
+    color: gray;
+    font-weight: 200;
+    margin:0;
+}
 
 /* FOOTER */
 footer {
@@ -276,6 +302,9 @@ footer {
     padding: 2rem 0 2rem 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     text-align: center;
+}
+body.dark-mode footer {
+    border-top: 1px solid #35383a;
 }
 .social-links {
     display: flex;
@@ -295,7 +324,7 @@ footer {
     height: 24px;
 }
 body.dark-mode .social-link svg {
-    color: white;
+    color: #dcdad6;
 }
 body.dark-mode .yt-icon-fill {
     fill: black;
