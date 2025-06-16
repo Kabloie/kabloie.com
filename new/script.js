@@ -16,15 +16,20 @@ function toggleDarkMode() {
         document.body.style.backgroundColor = "white";
         document.documentElement.style.backgroundColor = 'white';
     } else {
-        document.body.style.backgroundColor = ""; // Let .dark-mode CSS handle it
+        document.body.style.backgroundColor = "";
         document.documentElement.style.backgroundColor = '#1e2021';
     }
 
-    // Change image
-    const logos = document.querySelectorAll('img[alt="Kabloie Logo"]');
-    logos.forEach(logo => {
-        logo.src = isDark ? "images/name-white.png" : "images/name.png";
-    });
+    const mainLogo = document.querySelector('img[alt="Kabloie Logo"]');
+    const secondLogo = document.querySelector('img[alt="Kabloie Second Logo"]');
+
+    if (mainLogo) {
+        mainLogo.src = isDark ? "images/name-white.png" : "images/name.png";
+    }
+
+    if (secondLogo) {
+        secondLogo.src = isDark ? "images/logo-white.png" : "images/logo.png"; // Assuming there's a dark variant
+    }
 
     // Optional: save preference
     localStorage.setItem("darkMode", isDark);
