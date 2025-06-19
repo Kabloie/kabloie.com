@@ -70,7 +70,7 @@ header a {
     align-items: center;
 }
 .header-right-mobile svg {
-    width: 20px;
+    width: 21px;
     color: #8f8f8f;
     padding: 12px 0 12px 24px;
 }
@@ -782,7 +782,6 @@ body.dark-mode .slideshow-container {
     z-index: 10;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    opacity: 1;
 }
 
 .nav-button:hover {
@@ -829,14 +828,14 @@ body.dark-mode .slideshow-container {
 
     header {
         background-color: white;
-        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        padding: 1.25rem 2rem 0.75rem 2rem;
     }
 
     .logo img:nth-child(1) {
         height: 32px;
     }
     .logo img:nth-child(2) {
-        height: 32px; /* or any different value */
+        height: 30px; /* or any different value */
     }
 
     .header-right {
@@ -851,14 +850,14 @@ body.dark-mode .slideshow-container {
     }
 
     .content {
-        max-width: 600px;
         margin: 8rem auto 2rem;
-        padding: 0 1.5rem;
+        padding: 0 2rem;
         line-height: 1.85rem;
     }
     .content p {
         font-size: 1.15rem;
     }
+
     .waitlist {
         padding: 20px 10px;
     }
