@@ -298,14 +298,14 @@ function toggleNav() {
         overlay.classList.remove("active");
         document.body.style.overflow = "auto";
 
-        hamburger.classList.add("show");
-        close.classList.remove("show");
+        hamburger.style.display = "block";
+        close.style.display = "none";
     } else {
         overlay.classList.add("active");
         document.body.style.overflow = "hidden";
 
-        hamburger.classList.remove("show");
-        close.classList.add("show");
+        hamburger.style.display = "none";
+        close.style.display = "block";
     }
 }
 // Close overlay when clicking outside content
