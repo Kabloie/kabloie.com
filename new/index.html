@@ -36,14 +36,19 @@
 	</head>
 	<body>
 
-
-	    <div id="mySidebar" class="sidebar">
-		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-		  <a href="#">About</a>
-		  <a href="#">Services</a>
-		  <a href="#">Clients</a>
-		  <a href="#">Contact</a>
-		</div>
+		<!-- The overlay -->
+    <div id="myNav" class="overlay">
+        <span class="closebtn" onclick="closeNav()">&times;</span>
+        <div class="overlay-content">
+            <ul class="overlay-menu">
+                <li><a href="#" onclick="closeNav()">Latest</a></li>
+                <li><a href="#" onclick="closeNav()">Company</a></li>
+                <li><a href="#" onclick="closeNav()">Team</a></li>
+                <li><a href="#" onclick="closeNav()">Join Waitlist</a></li>
+                <li><a href="#" onclick="closeNav()">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
 
 	    <header class="animate__animated animate__fadeIn" style="animation-duration: 0.75s;">
 

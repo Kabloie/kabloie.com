@@ -287,23 +287,35 @@ window.addEventListener('scroll', () => {
 
 
 
-function openNav() {
+        function openNav() {
+            const overlay = document.getElementById("myNav");
+            overlay.classList.add("active");
+            
+            // Prevent body scroll when overlay is open
+            document.body.style.overflow = "hidden";
+        }
 
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementsByClassName("content")[0].style.transform = "translateX(-75%)";
-    document.querySelector("header").style.transform = "translateX(-75%)";
+        function closeNav() {
+            const overlay = document.getElementById("myNav");
+            overlay.classList.remove("active");
+            
+            // Restore body scroll
+            document.body.style.overflow = "auto";
+        }
 
-}
+        // Close overlay when clicking outside content
+        document.getElementById("myNav").addEventListener("click", function(e) {
+            if (e.target === this) {
+                closeNav();
+            }
+        });
 
-function closeNav() {
-
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementsByClassName("content")[0].style.transform = "translateX(0px)";
-    document.querySelector("header").style.transform = "translateX(0px)";
-    
-}
-
-
+        // Close overlay with Escape key
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") {
+                closeNav();
+            }
+        });
 
 
 
