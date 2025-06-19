@@ -30,6 +30,7 @@ header a {
 .logo img {
     transition: opacity 0.3s ease;
     height: 36px;
+    display: flex;
 }
 .logo-second {
     position: absolute;
