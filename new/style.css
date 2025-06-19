@@ -873,5 +873,11 @@ body.dark-mode .slideshow-container {
         font-weight: 300;
         font-style: normal;
     }
+    .footer-info {
+        padding: 0 1.75rem;
+    }
+    .time-info {
+        font-size: 0.8rem;
+    }
 
 }
