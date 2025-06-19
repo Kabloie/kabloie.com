@@ -721,8 +721,7 @@ body.dark-mode .slideshow-container {
 @media (max-width: 1050px) {
 
     header {
-        background-color: rgb(255 255 255 / 96%);
-        backdrop-filter: blur(5px);
+        background-color: white;
         padding: 0.5rem 1.5rem;
     }
 
