@@ -355,26 +355,25 @@ document.addEventListener("keydown", function(e) {
 
 let currentSlide = 0;
 let slides = [];
-const totalSlides = 16; // Based on the images shown in your folder
+const totalSlides = 15; // Based on the images shown in your folder
 
 // Image paths based on your folder structure
 const imageFiles = [
-    'Kabloie Pitch Deck FINAL_page-0001.jpg',
-    'Kabloie Pitch Deck FINAL_page-0002.jpg',
-    'Kabloie Pitch Deck FINAL_page-0003.jpg',
-    'Kabloie Pitch Deck FINAL_page-0004.jpg',
-    'Kabloie Pitch Deck FINAL_page-0005.jpg',
-    'Kabloie Pitch Deck FINAL_page-0006.jpg',
-    'Kabloie Pitch Deck FINAL_page-0007.jpg',
-    'Kabloie Pitch Deck FINAL_page-0008.jpg',
-    'Kabloie Pitch Deck FINAL_page-0009.jpg',
-    'Kabloie Pitch Deck FINAL_page-0010.jpg',
-    'Kabloie Pitch Deck FINAL_page-0011.jpg',
-    'Kabloie Pitch Deck FINAL_page-0012.jpg',
-    'Kabloie Pitch Deck FINAL_page-0013.jpg',
-    'Kabloie Pitch Deck FINAL_page-0014.jpg',
-    'Kabloie Pitch Deck FINAL_page-0015.jpg',
-    'Kabloie Pitch Deck FINAL_page-0016.jpg'
+    'kabloie-pitchdeck-0001.jpg',
+    'kabloie-pitchdeck-0002.jpg',
+    'kabloie-pitchdeck-0003.jpg',
+    'kabloie-pitchdeck-0004.jpg',
+    'kabloie-pitchdeck-0005.jpg',
+    'kabloie-pitchdeck-0006.jpg',
+    'kabloie-pitchdeck-0007.jpg',
+    'kabloie-pitchdeck-0008.jpg',
+    'kabloie-pitchdeck-0009.jpg',
+    'kabloie-pitchdeck-0010.jpg',
+    'kabloie-pitchdeck-0011.jpg',
+    'kabloie-pitchdeck-0012.jpg',
+    'kabloie-pitchdeck-0013.jpg',
+    'kabloie-pitchdeck-0014.jpg',
+    'kabloie-pitchdeck-0015.jpg'
 ];
 
 function openModal() {
