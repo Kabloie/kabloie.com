@@ -205,7 +205,6 @@ $(document).ready(function() {
    
    // Select all mobile navigation links
    $('#myNav .overlay-menu a').click(function(event) {
-       event.preventDefault(); // Prevent default anchor behavior
        
        // Get the target based on the link text
        var linkText = $(this).text().toLowerCase();
@@ -224,9 +223,7 @@ $(document).ready(function() {
            case 'join waitlist':
                target = '#waitlist';
                break;
-           case 'contact us':
-               target = '#contact';
-               break;
+
        }
        
        if (target) {

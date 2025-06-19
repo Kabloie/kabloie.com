@@ -782,10 +782,6 @@ body.dark-mode .slideshow-container {
     z-index: 10;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-}
-
-.modal-content:hover .nav-button {
     opacity: 1;
 }
 
@@ -833,14 +829,14 @@ body.dark-mode .slideshow-container {
 
     header {
         background-color: white;
-        padding: 0.5rem 1.5rem;
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
     }
 
     .logo img:nth-child(1) {
-        height: 26px;
+        height: 32px;
     }
     .logo img:nth-child(2) {
-        height: 30px; /* or any different value */
+        height: 32px; /* or any different value */
     }
 
     .header-right {
@@ -860,7 +856,9 @@ body.dark-mode .slideshow-container {
         padding: 0 1.5rem;
         line-height: 1.85rem;
     }
-
+    .content p {
+        font-size: 1.15rem;
+    }
     .waitlist {
         padding: 20px 10px;
     }
