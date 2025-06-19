@@ -287,7 +287,21 @@ window.addEventListener('scroll', () => {
 
 
 
+function openNav() {
 
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementsByClassName("content")[0].style.transform = "translateX(-75%)";
+    document.querySelector("header").style.transform = "translateX(-75%)";
+
+}
+
+function closeNav() {
+
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementsByClassName("content")[0].style.transform = "translateX(0px)";
+    document.querySelector("header").style.transform = "translateX(0px)";
+    
+}
 
 
 
