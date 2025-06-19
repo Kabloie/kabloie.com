@@ -38,7 +38,6 @@
 
 		<!-- The overlay -->
     <div id="myNav" class="overlay">
-        <span class="closebtn" onclick="closeNav()">&times;</span>
         <div class="overlay-content">
             <ul class="overlay-menu">
                 <li><a href="#" onclick="closeNav()">Latest</a></li>
@@ -70,11 +69,17 @@
 		        <a class="nav-right-button" href="mailto:hello@kabloie.com">Contact Us</a>
 		    </div>
 
-		    <div class="header-right-mobile" onclick="openNav()">
-			    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
-			</div>
+<div class="header-right-mobile" onclick="toggleNav()">
+    <svg id="hamburger" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
+        <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <svg id="close" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
+        <path d="M17 7L7 17M7 7L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</div>
+
+
 
 	    </header>
 

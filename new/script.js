@@ -287,35 +287,40 @@ window.addEventListener('scroll', () => {
 
 
 
-        function openNav() {
-            const overlay = document.getElementById("myNav");
-            overlay.classList.add("active");
-            
-            // Prevent body scroll when overlay is open
-            document.body.style.overflow = "hidden";
-        }
+function toggleNav() {
+    const overlay = document.getElementById("myNav");
+    const isActive = overlay.classList.contains("active");
 
-        function closeNav() {
-            const overlay = document.getElementById("myNav");
-            overlay.classList.remove("active");
-            
-            // Restore body scroll
-            document.body.style.overflow = "auto";
-        }
+    const hamburger = document.getElementById("hamburger");
+    const close = document.getElementById("close");
 
-        // Close overlay when clicking outside content
-        document.getElementById("myNav").addEventListener("click", function(e) {
-            if (e.target === this) {
-                closeNav();
-            }
-        });
+    if (isActive) {
+        overlay.classList.remove("active");
+        document.body.style.overflow = "auto";
 
-        // Close overlay with Escape key
-        document.addEventListener("keydown", function(e) {
-            if (e.key === "Escape") {
-                closeNav();
-            }
-        });
+        hamburger.classList.add("show");
+        close.classList.remove("show");
+    } else {
+        overlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        hamburger.classList.remove("show");
+        close.classList.add("show");
+    }
+}
+// Close overlay when clicking outside content
+document.getElementById("myNav").addEventListener("click", function(e) {
+    if (e.target === this) {
+        toggleNav();
+    }
+});
+
+// Close overlay with Escape key
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        toggleNav();
+    }
+});
 
 
 
