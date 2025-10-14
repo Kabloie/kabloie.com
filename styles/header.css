@@ -1,0 +1,129 @@
+/* Header Layout and Base Styles */
+header {
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header a {
+    text-decoration: none;
+}
+
+
+/* Header Left (Logo area) */
+.header-left {
+    position: relative;
+}
+.header-left img {
+    transition: opacity 0.3s ease;
+    display: flex;
+}
+.logo-first {
+	height: 28px;
+}
+.logo-second {
+	height: 34px;
+}
+.logo-second {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.logo.scrolled .logo-second {
+    opacity: 1;
+    animation: slowRotate 40s linear infinite;
+}
+.logo.scrolled img:first-child {
+    opacity: 0;
+}
+
+
+/* Logo Rotation Animation */
+@keyframes slowRotate {
+    from {
+        transform: translateX(0) rotate(0deg);
+    }
+    to {
+        transform: translateX(0) rotate(-360deg);
+    }
+}
+
+
+/* Header Right (Desktop and Mobile) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+.header-right-mobile {
+    display: none;
+    align-items: center;
+}
+.header-right-mobile svg {
+    width: 21px;
+    color: #8f8f8f;
+    padding: 12px 0 12px 24px;
+}
+#close {
+    display: none;
+}
+
+
+
+/* Right-Side Navigation Button */
+.nav-right-button {
+    padding: 0.85rem 1.3rem;
+    background-color: #f3f4f6;
+    color:#374151;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.nav-right-button:focus {
+    outline:0;
+}
+.nav-right-button:hover {
+    background-color: #eee;
+}
+
+
+/* Responsive Adjustments for <= 1050px */
+@media (max-width: 1050px) {
+
+    /* Header spacing and background */
+    header {
+        background-color: white;
+        padding: 0.75rem 1.25rem 0.75rem 1.25rem;
+    }
+
+    /* Logo size tweaks for mobile */
+    .logo-first {
+        height: 25px;
+    }
+    .logo-second {
+        height: 32px;
+    }
+
+    /* Swap desktop nav with mobile nav */
+    .header-right {
+        display: none;
+    }
+    .header-right-mobile {
+        display: flex;
+    }
+
+    .closebtn {
+        top: 20px;
+        right: 30px;
+        font-size: 2.5rem;
+    }
+
+}
