@@ -182,10 +182,12 @@
 				      const diffDays = Math.floor((new Date() - new Date(post.published)) / (1000 * 60 * 60 * 24));
 				      const publishedDate = new Date(post.published);
 				      const formattedDate = publishedDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+				          const timeText = diffDays === 0 ? 'Published today' : 
+                     `Published ${diffDays} day${diffDays !== 1 ? 's' : ''} ago`;
 				      const authors = Math.random() < 0.5 ? "Tobías and Antonio" : "Antonio and Tobías";
 				      postDiv.innerHTML = `
 				        <div class="title"><h2>${post.title}</h2></div>
-				        <div class="post-info">Published today</div>
+				        <div class="post-info">${timeText}</div>
 				        <div class="postcontent">${post.content}</div>
 				        <div class="post-signature">
 				          <p>${authors}</p>
@@ -228,7 +230,7 @@
     const timeText = diffDays === 0 ? 'Published today' : 
                      `Published ${diffDays} day${diffDays !== 1 ? 's' : ''} ago`;
     
-    const authors = post.authors || 'Anonymous';
+    const authors = Math.random() < 0.5 ? "Tobías and Antonio" : "Antonio and Tobías";
     
     postModalBody.innerHTML = `
       <div class="title"><h2>${post.title}</h2></div>
