@@ -48,7 +48,7 @@ $(document).ready(function() {
    
    
    // Select all mobile navigation links
-   $('#myNav .overlay-menu a').click(function(event) {
+   $('#navbar-mobile .overlay-menu a').click(function(event) {
        
        // Get the target based on the link text
        var linkText = $(this).text().toLowerCase();
@@ -123,4 +123,45 @@ $(document).ready(function() {
    // Run on scroll and initially
    $(window).on('scroll', highlightActiveNav);
    highlightActiveNav();
+});
+
+
+
+
+
+
+/* TOGGLE NAV IN MOBILE */
+function toggleNav() {
+    const overlay = document.getElementById("navbar-mobile");
+    const isActive = overlay.classList.contains("active");
+
+    const hamburger = document.getElementById("hamburger");
+    const close = document.getElementById("close");
+
+    if (isActive) {
+        overlay.classList.remove("active");
+        document.body.style.overflow = "auto";
+
+        hamburger.style.display = "block";
+        close.style.display = "none";
+    } else {
+        overlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        hamburger.style.display = "none";
+        close.style.display = "block";
+    }
+}
+// Close overlay when clicking outside content
+document.getElementById("navbar-mobile").addEventListener("click", function(e) {
+    if (e.target === this) {
+        toggleNav();
+    }
+});
+
+// Close overlay with Escape key
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        toggleNav();
+    }
 });

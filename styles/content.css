@@ -209,12 +209,9 @@ body.modal-open {
 }
 
 
-iframe {
-  width: 100%;
-  aspect-ratio: 9 / 16; /* or 16 / 9 for landscape */
-  border: 0;
+#halffull {
+  width: 50%;
 }
-
 
 
 /* Responsive Adjustments for <= 1050px */
@@ -231,5 +228,9 @@ iframe {
     .content p {
         font-size: 1.1rem;
     }
+
+    #halffull {
+        width: 100%;
+      }
 
 }
