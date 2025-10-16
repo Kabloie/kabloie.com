@@ -204,52 +204,105 @@
 
 				<div id="posts-list" style="line-height: 0; margin:0 0 40px 0;"></div>
 
-				<script type="module">
-				  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-				  const supabaseUrl = 'https://rdvwlcsdctljcrppreku.supabase.co';
-				  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJkdndsY3NkY3RsamNycHByZWt1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkzOTg2MDYsImV4cCI6MjA2NDk3NDYwNn0.Fh8L6wzaWzsbLDhparBq84uQ2rDM85SXCwqR7r8tdWA';
-				  const supabase = createClient(supabaseUrl, supabaseKey);
-				  
-				  async function fetchPosts2() {
-					// first, get count
-					const { count } = await supabase
-				    .from('posts')
-				    .select('*', { count: 'exact', head: true });
-
-				  const { data, error } = await supabase
-				    .from('posts')
-				    .select('*')
-				    .order('published', { ascending: false }) // newest first
-				    .range(1, count - 1); // ✅ correct
 
 
-				    if (error) {
-				      console.error('Error fetching posts:', error);
-				      return;
-				    }
-				    const container = document.getElementById('posts-list'); // Changed to posts-list
-				    container.innerHTML = '';
-				    data.forEach(post => {
-				      const postDiv = document.createElement('div');
-				      postDiv.classList.add('post');
-				      const diffDays = Math.floor((new Date() - new Date(post.published)) / (1000 * 60 * 60 * 24));
-						postDiv.innerHTML = `
-						  <div style="display: flex; align-items: center; gap: 20px; line-height: 0; cursor:pointer;">
-						    <img src="${post.thumbnail}" alt="Thumbnail" style="width: 120px; height: 80px; object-fit: cover; border-radius: 6px;">
-						    <div>
-						      <div class="title" style="margin-bottom:40px"><h3>${post.title}</h3></div>
-						      <div class="post-info" style="margin-bottom:0;">${diffDays} day${diffDays !== 1 ? 's' : ''} ago</div>
-						    </div>
-						  </div>
-						`;
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+  const supabaseUrl = 'https://rdvwlcsdctljcrppreku.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJkdndsY3NkY3RsamNycHByZWt1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkzOTg2MDYsImV4cCI6MjA2NDk3NDYwNn0.Fh8L6wzaWzsbLDhparBq84uQ2rDM85SXCwqR7r8tdWA';
+  const supabase = createClient(supabaseUrl, supabaseKey);
+  
+  const postModal = document.getElementById('post-modal');
+  const postModalBody = document.getElementById('post-modal-body');
+  const closeBtn = document.querySelector('.post-modal-close');
 
-				      container.appendChild(postDiv);
-				    });
-				  }
-				  fetchPosts2();
-				</script>
+  function openModal(post) {
+    const publishedDate = new Date(post.published);
+    const diffDays = Math.floor((new Date() - publishedDate) / (1000 * 60 * 60 * 24));
+    const formattedDate = publishedDate.toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    
+    const timeText = diffDays === 0 ? 'Published today' : 
+                     `Published ${diffDays} day${diffDays !== 1 ? 's' : ''} ago`;
+    
+    const authors = post.authors || 'Anonymous';
+    
+    postModalBody.innerHTML = `
+      <div class="title"><h2>${post.title}</h2></div>
+      <div class="post-info">${timeText}</div>
+      <div class="postcontent">${post.content}</div>
+      <div class="post-signature">
+        <p>${authors}</p>
+        <p>${formattedDate}</p>
+        <p>Lund, Sweden</p>
+      </div>
+    `;
+    
+    postModal.classList.add('active');
+    document.body.classList.add('post-modal-open');
+    postModal.scrollTop = 0;
+  }
 
+  function closeModal() {
+    postModal.classList.remove('active');
+    document.body.classList.remove('post-modal-open');
+  }
 
+  closeBtn.addEventListener('click', closeModal);
+
+  // Prevent scroll events from bubbling to body
+  postModal.addEventListener('wheel', (e) => {
+    e.stopPropagation();
+  }, { passive: true });
+
+  postModal.addEventListener('touchmove', (e) => {
+    e.stopPropagation();
+  }, { passive: true });
+
+  async function fetchPosts2() {
+    const { count } = await supabase
+      .from('posts')
+      .select('*', { count: 'exact', head: true });
+      
+    const { data, error } = await supabase
+      .from('posts')
+      .select('*')
+      .order('published', { ascending: false })
+      .range(1, count - 1);
+      
+    if (error) {
+      console.error('Error fetching posts:', error);
+      return;
+    }
+    
+    const container = document.getElementById('posts-list');
+    container.innerHTML = '';
+    
+    data.forEach(post => {
+      const postDiv = document.createElement('div');
+      postDiv.classList.add('post');
+      const diffDays = Math.floor((new Date() - new Date(post.published)) / (1000 * 60 * 60 * 24));
+      
+      postDiv.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 20px; line-height: 0; cursor:pointer;">
+          <img src="${post.thumbnail}" alt="Thumbnail" style="width: 120px; height: 80px; object-fit: cover; border-radius: 6px;">
+          <div>
+            <div class="title" style="margin-bottom:40px"><h3>${post.title}</h3></div>
+            <div class="post-info" style="margin-bottom:0;">${diffDays} day${diffDays !== 1 ? 's' : ''} ago</div>
+          </div>
+        </div>
+      `;
+      
+      postDiv.addEventListener('click', () => openModal(post));
+      container.appendChild(postDiv);
+    });
+  }
+  
+  fetchPosts2();
+</script>
 			</section>
 
 
@@ -453,6 +506,15 @@
 		    </div>
 		</div>
 
+
+		<div id="post-modal" class="post-modal">
+		  <button class="post-modal-close">&times;</button>
+			  <div class="content
+			  <div class="post-modal-content">
+			    <div id="post-modal-body"></div>
+			  </div>
+			</div>
+		</div>
 
 		<footer>
 

@@ -68,8 +68,8 @@
 /* Mobile Navbar Styles */
 .navbar-mobile {
     display: none;
+    z-index: 10000;
 }
-
 
 /* Responsive Adjustments for <= 1050px */
 @media (max-width: 1050px) {
@@ -85,7 +85,7 @@
 
 
 
-.navbar-mobile {
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -102,7 +102,7 @@
 }
 
 /* Active state for fade in */
-.navbar-mobile.active {
+.overlay.active {
     opacity: 1;
     visibility: visible;
 }
@@ -121,7 +121,7 @@
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.navbar-mobile.active .overlay-content {
+.overlay.active .overlay-content {
     transform: translate(-50%, -50%) scale(1);
 }
 
@@ -138,19 +138,19 @@
     transition: all 0.4s ease;
 }
 
-.navbar-mobile.active .overlay-menu li {
+.overlay.active .overlay-menu li {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* Staggered animation delay for menu items */
-.navbar-mobile.active .overlay-menu li:nth-child(1) { transition-delay: 0.1s; }
-.navbar-mobile.active .overlay-menu li:nth-child(2) { transition-delay: 0.2s; }
-.navbar-mobile.active .overlay-menu li:nth-child(3) { transition-delay: 0.3s; }
-.navbar-mobile.active .overlay-menu li:nth-child(4) { transition-delay: 0.4s; }
-.navbar-mobile.active .overlay-menu li:nth-child(5) { transition-delay: 0.5s; }
+.overlay.active .overlay-menu li:nth-child(1) { transition-delay: 0.1s; }
+.overlay.active .overlay-menu li:nth-child(2) { transition-delay: 0.2s; }
+.overlay.active .overlay-menu li:nth-child(3) { transition-delay: 0.3s; }
+.overlay.active .overlay-menu li:nth-child(4) { transition-delay: 0.4s; }
+.overlay.active .overlay-menu li:nth-child(5) { transition-delay: 0.5s; }
 
-.navbar-mobile a {
+.overlay a {
     color: #1f2937;
     text-decoration: none;
     font-size: 2.5rem;
@@ -165,7 +165,7 @@
     font-style: normal;
 }
 
-.navbar-mobile a::after {
+.overlay a::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -177,9 +177,9 @@
     transform: translateX(-50%);
 }
 
-.navbar-mobile {
+.overlay {
     filter: blur(10px);
 }
-.navbar-mobile.active {
+.overlay.active {
     filter: blur(0px);
 }
