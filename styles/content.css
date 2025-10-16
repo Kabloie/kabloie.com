@@ -272,7 +272,7 @@ body.modal-open {
     right: 20px;
     font-size: 28px;
     cursor: pointer;
-    background: white;
+    background: transparent;
     border: none;
     color: #666;
     line-height: 1;
